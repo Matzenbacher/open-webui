@@ -1,0 +1,30 @@
+service: open-webui
+image: matzenbacher/open-webui
+
+servers:
+  - vps-hermes
+
+ssh:
+  user: kaauan
+
+registry:
+  server: ghcr.io
+  username: matzenbacher
+  password:
+    - KAMAL_REGISTRY_PASSWORD
+
+# O Kamal vai tentar buildar por padrao, se falhar por falta de Dockerfile, a gente arruma
+builder:
+  arch: aarch64
+
+env:
+  clear:
+    PORT: 8080
+
+volumes:
+  - "open-webui_open-webui-data:/app/backend/data"
+
+proxy:
+  ssl: true
+  host: app.agente-pro.space
+  app_port: 8080
