@@ -15,7 +15,7 @@ registry:
 
 # O Kamal vai tentar buildar por padrao, se falhar por falta de Dockerfile, a gente arruma
 builder:
-  arch: aarch64
+  arch: arm64
 
 env:
   clear:
@@ -26,5 +26,5 @@ volumes:
 
 proxy:
   ssl: true
-  host: app.agente-pro.space
+  host: app.hermes.agente-pro.space
   app_port: 8080
