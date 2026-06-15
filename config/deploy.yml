@@ -20,11 +20,22 @@ builder:
 env:
   clear:
     PORT: 8080
+    OPENAI_API_BASE_URL: https://api.kimi.com/coding/v1/v1
+    CORS_ALLOW_ORIGIN: '*'
+    FORWARDED_ALLOW_IPS: '*'
+    SCARF_NO_ANALYTICS: "true"
+    DO_NOT_TRACK: "true"
+    ANONYMIZED_TELEMETRY: "false"
+    ENABLE_OLLAMA_API: "false"
+  secret:
+    - OPENAI_API_KEY
+    - WEBUI_SECRET_KEY
 
 volumes:
   - "open-webui_open-webui-data:/app/backend/data"
 
 proxy:
   ssl: true
-  host: app.hermes.agente-pro.space
+  host: app.agente-pro.space
   app_port: 8080
+
